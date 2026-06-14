@@ -18,3 +18,7 @@ kubectl apply -f .infrastructure/app/deployment.yml
 # Install Ingress Controller
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 # kubectl apply -f .infrastructure/ingress/ingress.yml
+
+helm dependency update ./helm-chart/todoapp
+
+helm upgrade --install todoapp ./helm-chart/todoapp

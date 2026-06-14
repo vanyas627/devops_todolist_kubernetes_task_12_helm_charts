@@ -1,7 +1,7 @@
 #!/bin/bash
 kind create cluster --config cluster.yml
-kind get nodes -o wide
-kind taint nodes -l app=mysql:NoSchedule
+kubectl get nodes -o wide
+kubectl taint nodes -l app=mysql app=mysql:NoSchedule
 
 kubectl apply -f .infrastructure/mysql/ns.yml
 kubectl apply -f .infrastructure/mysql/configMap.yml

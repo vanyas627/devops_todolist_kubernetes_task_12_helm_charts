@@ -3,11 +3,11 @@
 **Create cluster:**
 
     kind create cluster --config cluster.yml
-    kind get nodes -o wide 
+    kubectl get nodes -o wide 
 
 **Taint nodes with labels *app=mysql*:**
 
-    kind taint nodes -l app=mysql:NoSchedule
+    kubectl taint nodes -l app=mysql app=mysql:NoSchedule
 
 
 **Install dependency:**
@@ -20,4 +20,4 @@
 
 **Check the changes:**
 
-    kubectl get all,cm,secret,ing -A
+    kubectl get all,cm,secret,ing -A > output.log 

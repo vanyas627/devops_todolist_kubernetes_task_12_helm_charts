@@ -1,12 +1,22 @@
 # 1) How to validate the changes:
 
+**Create cluster:**
+
+    kind create cluster --config cluster.yml
+    kind get nodes -o wide 
+
+**Taint nodes with labels *app=mysql*:**
+
+    kind taint nodes -l app=mysql:NoSchedule
+
+
 **Install dependency:**
      
-    helm dependency update ./helm-chart/todoapp
+    helm dependency update ./.infrastructure/helm-chart/todoapp
 
 **Install release:**
 
-    helm upgrade --install todoapp ./helm-chart/todoapp
+    helm upgrade --install todoapp ./.infrastructure/helm-chart/todoapp
 
 **Check the changes:**
 
